@@ -1,0 +1,50 @@
+body {
+  height: 1000px;
+  width: 1000px;
+  margin: auto;
+}
+
+#timer {
+  background-color: rgba(90, 22, 90, 1);
+  background-position: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.big-sq {
+  background-position: center;
+  width: 60px;
+  height: 600px:
+}
+
+.lil-sq {
+  background-color: white;
+  background-size: contain;
+
+}
+
+
+#game1-container {
+  padding-top: 10px;
+  border: 1px solid black;
+  height: 500px;
+  width: 500px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  height: 100px;
+  width: 100px;
+  border: 4px solid black;
+  display: inline-block;
+  background-color: rgb(96, 125, 139);
+}
+
+#game2-container {
+
+}
+/*getting ready to float container 2 right or move both game conatiners into bigger container*/
