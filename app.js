@@ -1,21 +1,31 @@
+window.onload = function() {
+  console.log('Hi');
+//maybe shoot alert w/ game rules and add game rules as divs into page (HTML)
 
 
-//first memory game
+//wk02/d04-Instructor
+//link start button to timer
+  var startTimer = function() {
+    var time = 20;
+    $('button#start').on('click', function(){
+      setInterval(function(){
+        $('button#timer').text(time);
+        time--;
+        $('button#timer').text(time + "s");
+      }, 1000)
+    });
+  }
 
-//make board
-  // var board = [’t’, ‘a’, ‘c’,
-  //              ‘c’, ’t’, ‘a’,
-  //              ‘a’, ’t’, ‘c’];
-  //
-  // var renderBoard = function(){
-  //   for(i = 0; i < board.length; i++){
-  //     var li = $('li')
-  //
-  //     var div = document.createElement
-  //   }
-  // };
-  //
-  // renderBoard();
+  startTimer();
+
+//Bugs: when timer goes off, numbers can go negative (tried using clearInterval or setTimeout) & when I click start button twice, time decreases by 2s
 
 
-// trying to figure out how to call all element (of same type) using jQuery
+//attaches images to class groups
+  var renderBoard = 
+
+
+
+
+
+};

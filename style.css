@@ -35,7 +35,7 @@ button#start {
   height: 80px;
 }
 
-.timer {
+button#timer {
   display: inline-block;
   background-color: white;
   width: 150px;
