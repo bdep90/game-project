@@ -6,74 +6,83 @@
     <link rel="stylesheet" href="style.css" charset="utf-8">
   </head>
   <body>
-    <div id="timer">
-
-      <span class="big-sq"></span>
-      <span class="lil-sq">TIMER</span>
-
-    </div>
 
 
-    <div id="game1-container">
 
-      <div class="grid-row1">
-        <ul class="row1">
-          <li class="t">
-          </li>
-          <li class="e">
-          </li>
-          <li class="a">
-          </li>
-        </ul>
+    <div id="start-game">
+      <button id="start">START GAME</button>
+      <div id="timer">
+        <div class="big-sq">
+          <button class="timer">2:00</button>
+        </div>
       </div>
-
-      <div class="grid-row2">
-        <ul class="row1">
-          <li class="a">
-          </li>
-          <li class="t">
-          </li>
-          <li class="t">
-          </li>
-        </ul>
-      </div>
-
-      <div class="grid-row3">
-        <ul class="row1">
-          <li class="e">
-          </li>
-          <li class="a">
-          </li>
-          <li class="e">
-          </li>
-        </ul>
-      </div>
-
     </div>
 
 
 
-    <div id="game2-container">
+    <div id="mini-games">
+      <div id="game1-container">
+        <div class="grid-row1">
+          <ul class="row1">
+            <li class="flip-card" type="t">
+            </li>
+            <li class="flip-card" type="e">
+            </li>
+            <li class="flip-card" type="a">
+            </li>
+          </ul>
+        </div>
 
-      <ul id="colors">
-        <li class="Peach">
-        </li>
-        <li class="Orange">
-        </li>
-        <li class="Green">
-        </li>
-      </ul>
+        <div class="grid-row2">
+          <ul class="row1">
+            <li class="flip-card" type="a">
+            </li>
+            <li class="flip-card" type="t">
+            </li>
+            <li class="flip-card" type="t">
+            </li>
+          </ul>
+        </div>
 
+        <div class="grid-row3">
+          <ul class="row1">
+            <li class="flip-card" type="e">
+            </li>
+            <li class="flip-card" type="a">
+            </li>
+            <li class="flip-card" type="e">
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div id="game2-container">
+        <ul id="all-colors">
+          <li class="color"><button id="Peach"></button>
+          </li>
+          <li class="color"><button id="Orange"></button>
+          </li>
+          <li class="color"><button id="Green"></button>
+          </li>
+        </ul>
+      </div>
     </div>
 
 
+    <div id="guessing-game">
 
-<!-- created mini game containers and timer -->
+      <div id="blank-spaces">
+      </div>
 
+      <div id="game3-container">
+          <li class="guess-word" id="input">Guess word here.</li>
+          <li class="guess-word"><button id="submit">
+            SUBMIT
+          </button></li>
+      </div>
 
-
-
-
+    </div>
 
 
   <script src="app.js"></script>
