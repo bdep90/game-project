@@ -69,7 +69,6 @@ img {
 
 ul {
   list-style: none;
-  display: table-cell;
 }
 
 li.flip-card {
@@ -81,6 +80,7 @@ li.flip-card {
   display: inline-block;
   background-color: rgb(140, 120, 90);
   box-shadow: 3px 3px 3px #888888;
+  vertical-align: top;
 }
 
 #game2-container {
