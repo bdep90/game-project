@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mini Game Hangman</title>
+    <link rel="stylesheet" href="style.css" charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+  </head>
+  <body>
+    <div id="start-game">
+      <button id="start">START GAME</button>
+      <div id="timer">
+        <div class="big-sq">
+          <button id="timer"></button>
+        </div>
+      </div>
+    </div>
+    <div id="mini-games">
+      <div id="game1-container">
+        <div class="grid-row1">
+          <ul class="row1">
+            <li class="flip-card t" id="t1"></li>
+            <li class="flip-card e" id="e1"></li>
+            <li class="flip-card a" id="a1"></li>
+          </ul>
+        </div>
+        <div class="grid-row2">
+          <ul class="row1">
+            <li class="flip-card a" id="a2"></li>
+            <li class="flip-card t" id="t2"></li>
+            <li class="flip-card t" id="t3"></li>
+          </ul>
+        </div>
+        <div class="grid-row3">
+          <ul class="row1">
+            <li class="flip-card e" id="e2"></li>
+            <li class="flip-card a" id="a3"></li>
+            <li class="flip-card e" id="e3"></li>
+          </ul>
+        </div>
+      </div>
+      <div id="game2-container">
+        <ul id="all-colors">
+          <li class="color"><button id="Peach"></button></li>
+          <li class="color"><button id="Orange"></button></li>
+          <li class="color"><button id="Green"></button></li>
+        </ul>
+      </div>
+    </div>
+    <div id="guessing-game">
+      <div id="blank-spaces">
+      </div>
+      <div id="game3-container">
+          <li class="guess-word" id="input">Guess word here.</li>
+          <li class="guess-word"><button id="submit">
+            SUBMIT
+          </button></li>
+      </div>
+    </div>
+  <script src="app.js"></script>
+  </body>
+</html>
