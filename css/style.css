@@ -9,7 +9,6 @@ body {
 
 
 #start-game {
-  display: inline-grid;
   text-align: center;
   height: 160px;
   padding-top: 20px;
@@ -126,9 +125,15 @@ li.color {
 
 
 #guessing-game {
-  display: inline-grid;
+  height: 160px;
+  padding-top: 20px;
   text-align: center;
-  height: 140px;
+}
+
+#container1 {
+  padding: 10px;
+  width: 480px;
+  height: 70px;
 }
 
 #blank-spaces {
@@ -137,16 +142,14 @@ li.color {
   padding: 10px;
   width: 480px;
   height: 70px;
-  display: inline-block;
-  text-align: center;
+  font-size: 40px;
 }
 
-#game3-container {
+#container2 {
+  display: inline;
   padding: 10px;
   width: 480px;
   height: 70px;
-  display: inline-block;
-  text-align: center;
 }
 
 li.guess-word {
@@ -155,16 +158,17 @@ li.guess-word {
 }
 
 #input{
+  background-color: white;
   color: grey;
   border: 1px solid black;
-  width: 200px;
+  width: 400px;
   height: 40px;
   font-size: 20px;
   font-style: italic;
-
+  padding-left: 10px;
 }
 
-button#submit {
+#submit {
   width: 80px;
   height: 40px;
   border-radius: 10px;
