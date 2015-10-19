@@ -1,19 +1,17 @@
 var Game = (function() {
   console.log('Hi');
+  //shoot alert w/ game rules and/or add game rules as divs into page (HTML)???
 
-//shoot alert w/ game rules and/or add game rules as divs into page (HTML)???
-
-//global vars
-  var time = 15;
+//global vars - time, word, blanks,
+  var time = 90;
   var mysteryWord = 'cantaloupe';
-  var wordArray = ['_', '_', '_', '_', '_', '_', '_', '_', '_'];
+  var wordArray = ['_', '_', '_', '_', '_', '_', '_', '_', '_', '_'];
+  var hideCards = $('img').hide();
 
 
   return {
 
-
-//timer - wk02/d04-Instructor
-    //links start button to timer
+//timer - links start button to timer display and stops once time is up (alerts player in some way that time's up)
     startGame: function() {
       $('button#start').on('click', function(){
         var intervalId = setInterval(function(){
@@ -21,130 +19,145 @@ var Game = (function() {
           time--;
           $('button#timer').text(time + "s");
           $('button#start').css( "visibility", "hidden" );
-          if(time === 0) {
+          if(time <= 0) {
             clearInterval(intervalId);
-            //set up alert, make div for alert or change timer on gameOver
+            time = 0;
           };
         }, 1000)
-        Game.renderCards();
         Game.renderBlanks();
+        Game.renderCards();
+        Game.checkSets();
+        // Game.flipChecker();
      });
+    },
+    //bugs: only displays time in seconds
+
+
+
+//word board - displays blanks on startGame
+    renderBlanks: function() {
+      $('#blank-spaces').text(wordArray.join(' '));
     },
 
 
 
-//memory game1
-    //attaches images to class groups once clicked & sets value to revealed
-    // click 3 cards,
-    //   once clicked - checkSet,
-    //     if set - keep cards up and change letter
-    //     if not set - hide/reset cards
+//flip card game
+    //attaches images to class groups once clicked & resets their values
     renderCards: function() {
       $('#t1').on('click', function() {
-        $('#t1').show('<img src="/Users/BDep/GA-WDI/game-project/images/tomato.png" alt="T"></img>');
+        $('#t1').append('<img src="/Users/BDep/GA-WDI/game-project/images/tomato.png" class="t1"></img>');
         $('#t1').val('1');
       });
       $('#t2').on('click', function() {
-        $('#t2').show('<img src="/Users/BDep/GA-WDI/game-project/images/tomato.png" alt="T"></img>');
+        $('#t2').append('<img src="/Users/BDep/GA-WDI/game-project/images/tomato.png" class="t2"></img>');
         $('#t2').val('1');
       });
       $('#t3').on('click', function() {
-        $('#t3').show('<img src="/Users/BDep/GA-WDI/game-project/images/tomato.png" alt="T"></img>');
+        $('#t3').append('<img src="/Users/BDep/GA-WDI/game-project/images/tomato.png" class="t3"</img>');
         $('#t3').val('1');
       });
       $('#a1').on('click', function() {
-        $('#a1').show('<img src="/Users/BDep/GA-WDI/game-project/images/apricot.png" alt="A"></img>');
+        $('#a1').append('<img src="/Users/BDep/GA-WDI/game-project/images/apricot.png" class="a1"></img>');
         $('#a1').val('2');
       });
       $('#a2').on('click', function() {
-        $('#a2').show('<img src="/Users/BDep/GA-WDI/game-project/images/apricot.png" alt="A"></img>');
+        $('#a2').append('<img src="/Users/BDep/GA-WDI/game-project/images/apricot.png" class="a2"></img>');
         $('#a2').val('2');
       });
       $('#a3').on('click', function() {
-        $('#a3').show('<img src="/Users/BDep/GA-WDI/game-project/images/apricot.png" alt="A"></img>');
+        $('#a3').append('<img src="/Users/BDep/GA-WDI/game-project/images/apricot.png" class="a3"></img>');
         $('#a3').val('2');
       });
       $('#a3').val('2');
       $('#e1').on('click', function() {
-        $('#e1').show('<img src="/Users/BDep/GA-WDI/game-project/images/eggplant.png" alt="E"></img>');
+        $('#e1').append('<img src="/Users/BDep/GA-WDI/game-project/images/eggplant.png" class="e1"></img>');
         $('#e1').val('3');
       });
       $('#e2').on('click', function() {
-        $('#e2').show('<img src="/Users/BDep/GA-WDI/game-project/images/eggplant.png" alt="E"></img>');
+        $('#e2').append('<img src="/Users/BDep/GA-WDI/game-project/images/eggplant.png" class="e2"></img>');
         $('#e2').val('3');
       });
       $('#e3').on('click', function() {
-        $('#e3').show('<img src="/Users/BDep/GA-WDI/game-project/images/eggplant.png" alt="E"></img>');
+        $('#e3').append('<img src="/Users/BDep/GA-WDI/game-project/images/eggplant.png" class="e3"></img>');
         $('#e3').val('3');
       });
     },
-    //Bugs: when I click the same card 2x, 2 imgs appear, etc.
-    //checkSet funcion runs immediately with startGame and never checks set again
-
-
-    checkSet: function() {
-      if(($('#t1').val() + $('#t2').val() + $('#t3').val() === 3) ||
-          ($('#a1').val() + $('#a2').val() + $('#a3').val() === 6) ||
-          ($('#t1').val() + $('#t2').val() + $('#t3').val() === 9)) {
-        console.log('yes');
-      } else {
-        console.log('no');
-      }
-    },
-    //next steps:
-    // if not all match, then hide ()
-    // function showImage(){
-    // 	$('#imgSwitch').show();
-    // }
-    // function hideImage(){
-    // 	$('#imgSwitch').hide();
-    // }
+    //bugs: will append several imgs to same card if clicked more than once
 
 
 
-//hangman - should declare win > should stop timer if win OR take 10s off timer if lose
-    //displays blanks on startGame
-    renderBlanks: function() {
-      var wordArray = ['_', '_', '_', '_', '_', '_', '_', '_', '_']; //global var test
-      $('#blank-spaces').text(wordArray.join(' '));
-    }, //link to startGame
+    // click 3 cards,
+    //   once clicked - checks sets,
+    //     if set - keep cards up and change letter
+    //     if not set - hide/reset cards
+    checkSets: function() {
+      var checkSetsInterval = window.setInterval(function() {
+        if($('#e1').val() + $('#e2').val() + $('#e3').val() === 9) {
+        letterE = ['_', '_', '_', '_', '_', '_', '_', '_', '_', 'e'];
+        $('#blank-spaces').text(letterE.join(' '));
+        time += 10; //link to timer: +10s for a matched set
+        } else if($('#a1').val() + $('#a2').val() + $('#a3').val() === 6) {
+          letterA = ['_', 'a', '_', '_', 'a', '_', '_', '_', '_', '_'];
+          $('#blank-spaces').text(letterA.join(' '));
+          time += 10; //link to timer: +10s for a matched set
+        } else if($('#t1').val() + $('#t2').val() + $('#t3').val() === 3) {
+          letterT = ['_', '_', '_', 't', '_', '_', '_', '_', '_', '_',];
+          $('#blank-spaces').text(letterT.join(' '));
+          time += 10; //link to timer: +10s for a matched set
+        } else if($('#a1').val() + $('#a2').val() + $('#a3').val() === 6 && $('#e1').val() + $('#e2').val() + $('#e3').val() === 9) {
+          lettersAE = ['_', 'a', '_', '_', 'a', '_', '_', '_', '_', 'e'];
+          $('#blank-spaces').text(lettersAE.join(' '));
+        } else if ($('#t1').val() + $('#t2').val() + $('#t3').val() === 3 && $('#a1').val() + $('#a2').val() + $('#a3').val() === 6) {
+          lettersTA = ['_', 'a', '_', 't', 'a', '_', '_', '_', '_', '_'];
+          $('#blank-spaces').text(lettersTA.join(' '));
+        } else if ($('#e1').val() + $('#e2').val() + $('#e3').val() === 9 && $('#t1').val() + $('#t2').val() + $('#t3').val() === 3) {
+          lettersET = ['_', '_', '_', 't', '_', '_', '_', '_', '_', 'e'];
+          $('#blank-spaces').text(lettersET.join(' '));
+        } else if ($('#e1').val() + $('#e2').val() + $('#e3').val() === 9 && $('#t1').val() + $('#t2').val() + $('#t3').val() === 3 && $('#a1').val() + $('#a2').val() + $('#a3').val() === 6) {
+          lettersETA = ['_', 'a', '_', 't', 'a', '_', '_', '_', '_', 'e'];
+          $('#blank-spaces').text(lettersETA.join(' '));
+        } else {
+          $.each($('img'), function() {
+            if($('img').val('1') || $('img').val('2') || $('img').val('3')) {
+            $('img').val('0');
+            $('img').hide();
+            };
+          });
+          };
+          console.log(checkSetsInterval);
+        }, 4000);
+        while(time > 0) {
+          return checkSetsInterval;
+        };
+      },
+    //bugs: allows player to select more than 3 cards at a time during interval, interval could work better
 
 
-    //replaces blanks with input when submit button is clicked
-    renderGuess: function() {
-      $('#submit').on('click', function() {
-        $('#blank-spaces').text($('#input').val().split('').join(' '));
-      });
-    },
-    //next steps:
-    // merge render with win to display winning input?
+
+//guess game - pauses game
+    // guessGame: function() {
+    //   $('#Peach', '#Orange', '#Green').on('click', function() {
+    //     $('#input').val() ===
+    //   });
+    // },
 
 
-    //returns winState by checking input against mysteryWord
+
+//WIN - returns winState by checking input against mysteryWord > should stop timer if win OR -10s if lose
     winState: function() {
-      var mysteryWord = 'cantaloupe'; //global var test
       $('#submit').on('click', function() {
         if ($('#input').val() === mysteryWord) {
+          //replaces blanks with matching input when submit button is clicked
           $('#blank-spaces').text($('#input').val().split('').join(' '));
-          $('#input').val('YOU GOT IT! GAME OVER');
-           //stop game here
+          $('#input').val('YOU GOT IT! GAME OVER').css('color', 'limegreen');
+          time = 1; //stops game
         } else {
-          $('#input').val('Wrong word! Guess again.'); //link to timer: -10s for each wrong guess
+          time -= 10; //-10s for each wrong guess
+          $('#input').val('Sorry! Guess again. ' + time + ' ' + 'sec left!');
         };
       });
-    }
-    //Bugs:
-    // -red color never changes back, .css('color', 'limegreen')
-    //-'C'antaloupe input returns wrong word...
-
-
-
-    //next steps: link to timer & flip cards (checkSet)
-
-
-
-
-
+    },
+    //bugs: capitalized letters aren't accounted for
 
 
 
@@ -153,26 +166,3 @@ var Game = (function() {
 })();
 Game.startGame();
 Game.winState();
-// Game.renderCards();
-
-
-
-
-//
-// checkSetTwo: function() {
-//   if(($('#t1').val() + $('#t2').val() + $('#t3').val() === 3)) {
-//     console.log('yes');
-//
-//   };
-//
-//
-//
-//
-//    ||
-//       ($('#a1').val() + $('#a2').val() + $('#a3').val() === 6) ||
-//       ($('#t1').val() + $('#t2').val() + $('#t3').val() === 9)) {
-//     console.log('yes');
-//   } else {
-//     console.log('no');
-//   }
-// },

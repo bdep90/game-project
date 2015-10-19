@@ -2,7 +2,25 @@ body {
   width: 1000px;
   height: 1000px;
   padding: 10px;
-  margin: auto;
+  margin: 0 auto;
+  background-color: antiquewhite;
+}
+
+
+
+
+h3 {
+  font-family: arial bold;
+  text-align: center;
+  font-family: monospace;
+}
+
+p {
+  font-size: 20px;
+  font-style: bold;
+  font-family: monospace;
+  line-height: 7px;
+  text-align: center;
 }
 
 
@@ -11,7 +29,7 @@ body {
 #start-game {
   text-align: center;
   height: 160px;
-  padding-top: 20px;
+  padding-top: 60px;
 }
 
 button#start {
@@ -60,7 +78,7 @@ img {
   overflow: hidden;
 }
 
-#game1-container {
+#flip-game-container {
   width: 490px;
   height: 640px;
   float: left;
@@ -68,6 +86,7 @@ img {
 
 ul {
   list-style: none;
+  overflow: hidden;
 }
 
 li.flip-card {
@@ -82,7 +101,7 @@ li.flip-card {
   vertical-align: top;
 }
 
-#game2-container {
+#guess-game-container {
   width: 490px;
   height: 640px;
   float: right;
@@ -97,26 +116,38 @@ li.color {
 
 #Peach {
   background-color: rgb(243, 197, 135);
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   border-radius: 80px;
   border-width: thin medium thick;
+  background-image: url('http://www.physicschick.com/images/planck_fullsky.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #Orange {
   background-color: rgb(237, 150, 42);
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   border-radius: 80px;
   border-width: thin medium thick;
+  background-image: url('/Users/BDep/GA-WDI/game-project/images/enjoy.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #Green {
   background-color: rgb(58, 142, 15);
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   border-radius: 80px;
   border-width: thin medium thick;
+  background-image: url('http://kids.niehs.nih.gov/assets/images/p/puz146.gif');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 
@@ -124,14 +155,14 @@ li.color {
 
 
 
-#guessing-game {
+#word-game-container {
   height: 160px;
   padding-top: 20px;
-  text-align: center;
+  text-align: -webkit-center;
 }
 
 #container1 {
-  padding: 10px;
+  padding: 20px;
   width: 480px;
   height: 70px;
 }
@@ -161,7 +192,7 @@ li.guess-word {
   background-color: white;
   color: grey;
   border: 1px solid black;
-  width: 400px;
+  width: 350px;
   height: 40px;
   font-size: 20px;
   font-style: italic;

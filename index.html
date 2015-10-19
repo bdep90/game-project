@@ -2,11 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Mini Game Hangman</title>
+    <title>Mystery Word</title>
     <link rel="stylesheet" href="css/style.css" charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
   </head>
   <body>
+
+    <h3>You have <b><font color="red">90 seconds </font></b>to guess the Mystery Word.</h3>
+    <p>- If you find a matching set of cards (3), +10 seconds</p>
+    <p>- Click on any of the encircled buttons to pause the game for 10 seconds</p>
+    <p>- If you guess the Mystery Word incorrectly, -10 seconds</p>
+    <p>* Any combination of game-play goes!</p>
+    <p>Got it? Scroll down to start the game.</p>
+
+    <!--3 main containers (all ids): timer, mini-games (contains 2 containers [flip-game & memory-game]) & word-game  -->
     <div id="start-game">
       <button id="start">START GAME</button>
       <div id="timer">
@@ -17,42 +26,42 @@
     </div>
 
     <div id="mini-games">
-      <div id="game1-container">
+      <div id="flip-game-container">
         <div class="grid-row1">
           <ul class="row1">
-            <li class="flip-card t" id="t1"></li>
-            <li class="flip-card e" id="e1"></li>
-            <li class="flip-card a" id="a1"></li>
+            <li class="flip-card" id="t1"></li>
+            <li class="flip-card" id="e1"></li>
+            <li class="flip-card" id="a1"></li>
           </ul>
         </div>
         <div class="grid-row2">
           <ul class="row1">
-            <li class="flip-card a" id="a2"></li>
-            <li class="flip-card t" id="t2"></li>
-            <li class="flip-card t" id="t3"></li>
+            <li class="flip-card" id="a2"></li>
+            <li class="flip-card" id="t2"></li>
+            <li class="flip-card" id="t3"></li>
           </ul>
         </div>
         <div class="grid-row3">
           <ul class="row1">
-            <li class="flip-card e" id="e2"></li>
-            <li class="flip-card a" id="a3"></li>
-            <li class="flip-card e" id="e3"></li>
+            <li class="flip-card" id="e2"></li>
+            <li class="flip-card" id="a3"></li>
+            <li class="flip-card" id="e3"></li>
           </ul>
         </div>
       </div>
-      <div id="game2-container">
+      <!-- freebie game, pauses time gives up a letter when sequence is clicked -->
+      <div id="guess-game-container">
         <ul id="all-colors">
-          <li class="color"><button id="Peach"></button></li>
-          <li class="color"><button id="Orange"></button></li>
-          <li class="color"><button id="Green"></button></li>
+          <li class="color"><button class="color" id="Peach" ></button></li>
+          <li class="color"><button class="color" id="Orange"></button></li>
+          <li class="color"><button class="color" id="Green"></button></li>
         </ul>
       </div>
     </div>
 
 
-    <div id="guessing-game">
-      <div id="container1"><button id="blank-spaces" value="">
-      </button></div>
+    <div id="word-game-container">
+      <div id="container1"><button id="blank-spaces" value=""></button></div>
       <div id="container2">
           <li class="guess-word"><input type="text" id="input" value="Guess word here."></input></li>
           <li class="guess-word"><input type="submit" id="submit" value="SUBMIT"></li>
