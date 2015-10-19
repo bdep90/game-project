@@ -134,15 +134,6 @@ var Game = (function() {
 
 
 
-//guess game - pauses game
-    // guessGame: function() {
-    //   $('#Peach', '#Orange', '#Green').on('click', function() {
-    //     $('#input').val() ===
-    //   });
-    // },
-
-
-
 //WIN - returns winState by checking input against mysteryWord > should stop timer if win OR -10s if lose
     winState: function() {
       $('#submit').on('click', function() {
@@ -166,3 +157,12 @@ var Game = (function() {
 })();
 Game.startGame();
 Game.winState();
+
+
+
+//guess game - pauses game
+    // guessGame: function() {
+    //   $('#Peach', '#Orange', '#Green').on('click', function() {
+    //     $('#input').val() ===
+    //   });
+    // },
